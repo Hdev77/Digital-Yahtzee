@@ -1,0 +1,107 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.game-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.25rem;
+  background: $color-surface;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: $border-radius-lg;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+
+  &__title-group {
+    min-width: 0;
+  }
+
+  &__eyebrow {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: $color-accent;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+  }
+
+  &__title {
+    margin: 0;
+    color: $color-text;
+    font-size: clamp(1.05rem, 3vw, 1.5rem);
+    line-height: 1.2;
+  }
+
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    justify-self: end;
+    gap: 0.55rem;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    white-space: nowrap;
+
+    &--human {
+      color: $color-primary;
+      background: rgba($color-primary, 0.1);
+    }
+
+    &--ai {
+      color: $color-secondary;
+      background: rgba($color-secondary, 0.1);
+    }
+  }
+
+  &__status-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 10px currentColor;
+  }
+
+  &__rolls {
+    display: flex;
+    grid-column: 1 / -1;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.35rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  &__rolls-label {
+    margin-right: 0.25rem;
+    color: $color-text-muted;
+    font-size: 0.85rem;
+  }
+
+  &__rolls-value {
+    color: $color-accent;
+    font-size: 1.25rem;
+    font-weight: 900;
+  }
+
+  &__rolls-total {
+    color: $color-text-muted;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  @include respond-to("tablet") {
+    grid-template-columns: 1fr auto auto;
+
+    &__rolls {
+      grid-column: auto;
+      justify-content: flex-end;
+      padding: 0 0 0 1rem;
+      border-top: 0;
+      border-left: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  }
+}

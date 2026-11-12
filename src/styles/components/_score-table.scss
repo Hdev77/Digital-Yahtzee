@@ -1,0 +1,148 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.score-table {
+  width: 100%;
+  max-width: 690px;
+  margin: 0 auto;
+  background-color: $color-surface;
+  border-radius: $border-radius-lg;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+  }
+
+  &__header-row {
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+
+  &__th {
+    padding: 12px 14px;
+    font-weight: 700;
+    color: $color-text-muted;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+
+    &--player {
+      color: $color-primary;
+      text-align: center;
+      width: 75px;
+    }
+
+    &--ai {
+      color: $color-secondary;
+      text-align: center;
+      width: 75px;
+    }
+  }
+
+  &__section-header {
+    background-color: rgba(255, 255, 255, 0.04);
+    td {
+      padding: 8px 14px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: $color-accent;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  }
+
+  &__row {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background-color 0.15s ease;
+
+    &--selectable {
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba($color-primary, 0.12);
+
+        .score-table__preview {
+          transform: scale(1.1);
+          color: #fff;
+        }
+      }
+    }
+
+    &--subtotal {
+      background-color: rgba(255, 255, 255, 0.03);
+      font-weight: 700;
+      color: $color-text-muted;
+    }
+
+    &--total {
+      background-color: rgba(0, 0, 0, 0.35);
+      font-weight: 800;
+      border-top: 2px solid rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  &__cell {
+    padding: 10px 14px;
+    vertical-align: middle;
+
+    &--category {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &--score {
+      text-align: center;
+      font-weight: 700;
+    }
+
+    &--total-val {
+      font-size: 1.1rem;
+      color: $color-accent;
+    }
+  }
+
+  &__icon {
+    font-size: 1.2rem;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-weight: 600;
+    color: $color-text;
+  }
+
+  &__desc {
+    font-size: 0.72rem;
+    color: $color-text-muted;
+  }
+
+  &__value {
+    color: $color-text;
+  }
+
+  &__preview {
+    display: inline-block;
+    color: rgba($color-primary, 0.85);
+    font-weight: 800;
+    transition: transform 0.15s ease;
+  }
+
+  &__empty {
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  &__total-label {
+    font-size: 0.95rem;
+    color: $color-text;
+    text-transform: uppercase;
+  }
+}

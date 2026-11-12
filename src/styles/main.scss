@@ -1,0 +1,9 @@
+@use "./abstracts/mixins";
+@use "./abstracts/variables";
+@use "./base/reset";
+@use "./base/typography";
+@use "./components/dice-board";
+@use "./components/game-header";
+@use "./components/game-over-modal";
+@use "./components/score-table";
+@use "./layout/app-container";
